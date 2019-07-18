@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        printf("Made a difference");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
