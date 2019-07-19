@@ -1,37 +1,83 @@
 package com.example.relationtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.view.ViewCompat;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnTouchListener{
+public class MainActivity extends AppCompatActivity{
 
-    drawClass act_view;
+    ViewGroup grp_root;
+/*    ImageView act_view;
     ViewGroup grp_root; //special view that can contain other views inside, parent of RelativeLayout
     private int xDelta;
-    private int yDelta;
+    private int yDelta;*/
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        printf("Made a difference");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        grp_root = (ViewGroup) findViewById(R.id.root); //upcast RelativeLayout to ViewGroup
+        grp_root = (ViewGroup) findViewById(R.id.root);
 
+        moveableShape movableShape = new moveableShape(this, grp_root);
+        moveableShape movableShape1 = new moveableShape(this, grp_root);
+        moveableShape movableShape2 = new moveableShape(this, grp_root);
+
+        final Button addPersonButton = (Button) findViewById(R.id.add_person);
+        addPersonButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // your handler code here
+                EditText firstName = (EditText) findViewById(R.id.first_name);
+                EditText lastName = (EditText) findViewById(R.id.last_name);
+
+                int gender = 1;
+                RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio_gender);
+                int selectedGender_Id = radioGroup.getCheckedRadioButtonId();
+                RadioButton selectedGender = (RadioButton) findViewById(selectedGender_Id);
+
+                if(selectedGender.getText() == "Male") {
+                    gender = 1;
+                }else if(selectedGender.getText() == "Female"){
+                    gender = 0;
+                }
+
+                Person newPerson = new Person(firstName.getText().toString(), lastName.getText().toString(), gender);
+
+                Toast.makeText(MainActivity.this,
+                        "Welcome " + newPerson.getFirstName(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+/*        grp_root = (ViewGroup) findViewById(R.id.root); //upcast RelativeLayout to ViewGroup
         //create a new text view that we will manipulate
-        act_view = new drawClass(this);
+
+        act_view = new ImageView(this);
+        act_view.setImageResource(R.drawable.ic_launcher);
+        //act_view.setColorFilter(Color.BLUE);
 
         //LayoutParams specifies how a view is positioned within a ViewGroup
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(60, 50);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150 , 150);
         //specify the size of the layoutparams
 
         //specify the position of layoutparams on the screen
@@ -47,11 +93,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         act_view.setOnTouchListener(this);
 
         //add the view to the relative layout
-        grp_root.addView(act_view);
+        grp_root.addView(act_view);*/
 
     }
 
-    @Override
+/*    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
 
         //get where the motion event happened, the first touch
@@ -90,7 +136,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         //force the view to draw
         grp_root.invalidate();
         return true;
-    }
+    }*/
+
 }
 
 
