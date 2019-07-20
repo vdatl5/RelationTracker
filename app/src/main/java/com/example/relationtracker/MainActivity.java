@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.view.ViewCompat;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -43,31 +44,18 @@ public class MainActivity extends AppCompatActivity{
         moveableShape movableShape1 = new moveableShape(this, grp_root);
         moveableShape movableShape2 = new moveableShape(this, grp_root);
 
-        final Button addPersonButton = (Button) findViewById(R.id.add_person);
-        addPersonButton.setOnClickListener(new View.OnClickListener() {
+        final Button cancelButton = (Button) findViewById(R.id.add_new_person_temp);
+
+        //on click, go to add person activity
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // your handler code here
-                EditText firstName = (EditText) findViewById(R.id.first_name);
-                EditText lastName = (EditText) findViewById(R.id.last_name);
-
-                int gender = 1;
-                RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio_gender);
-                int selectedGender_Id = radioGroup.getCheckedRadioButtonId();
-                RadioButton selectedGender = (RadioButton) findViewById(selectedGender_Id);
-
-                if(selectedGender.getText() == "Male") {
-                    gender = 1;
-                }else if(selectedGender.getText() == "Female"){
-                    gender = 0;
-                }
-
-                Person newPerson = new Person(firstName.getText().toString(), lastName.getText().toString(), gender);
-
-                Toast.makeText(MainActivity.this,
-                        "Welcome " + newPerson.getFirstName(), Toast.LENGTH_SHORT).show();
-
+                //declare a new intent to launch the other activity
+                Intent  launch_addPerson = new Intent(getApplicationContext(), addPerson.class);
+                startActivity(launch_addPerson);
             }
         });
+
+
 
 /*        grp_root = (ViewGroup) findViewById(R.id.root); //upcast RelativeLayout to ViewGroup
         //create a new text view that we will manipulate

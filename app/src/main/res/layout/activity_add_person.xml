@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/last_name"
+        android:layout_width="223dp"
+        android:layout_height="74dp"
+        android:layout_below="@+id/first_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="46dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginRight="142dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Last Name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/first_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="145dp"    
+        android:layout_marginRight="145dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="First Name
+" />
+
+    <RadioGroup
+        android:id="@+id/radio_gender"
+        android:layout_width="260dp"
+        android:layout_height="162dp"
+        android:checkedButton="@+id/gender_male"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginRight="102dp">
+
+        <RadioButton
+            android:id="@+id/gender_female"
+            android:layout_width="146dp"
+            android:layout_height="21dp"
+            android:layout_weight="1"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/gender_male"
+            android:layout_width="142dp"
+            android:layout_height="7dp"
+            android:layout_weight="1"
+            android:text="Male" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="49dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginTop="336dp"
+        android:layout_marginEnd="316dp"
+        android:layout_marginRight="316dp"
+        android:text="Gender" />
+
+    <Button
+        android:id="@+id/add_person"
+        android:layout_width="159dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="209dp"
+        android:layout_marginLeft="209dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginBottom="36dp"
+        android:text="Add Person " />
+
+    <Button
+        android:id="@+id/cancel_add_person"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginEnd="232dp"
+        android:layout_marginRight="232dp"
+        android:layout_marginBottom="35dp"
+        android:text="Cancel" />
+
+</RelativeLayout>
